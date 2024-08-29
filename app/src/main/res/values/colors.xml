@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Custom Colors -->
+    <color name="CustomBlack">#FF000000</color>
+    <color name="BlueButtonGradient1">#33C0DF</color>
+    <color name="BlueButtonGradient2">#04A4C7</color>
+    <color name="Red">#D80000</color>
+    <color name="BlueFont">#00B1D8</color>
+    <color name="Pink">#FFC0CB</color>
+    <color name="WhiteButtonGradient1">#FFFFFFFF</color>
+    <color name="WhiteButtonGradient2">#E5E5E5</color>
+
+
+    <!-- Shades of Red -->
+    <color name="LightRed">#FF6666</color>
+    <color name="DarkRed">#8B0000</color>
+    <color name="Crimson">#DC143C</color>
+    <color name="Firebrick">#B22222</color>
+    <color name="IndianRed">#CD5C5C</color>
+
+    <!-- Shades of Orange -->
+    <color name="Orange">#FFA500</color>
+    <color name="Coral">#FF7F50</color>
+    <color name="Salmon">#FA8072</color>
+    <color name="Tangerine">#F28500</color>
+
+    <!-- Shades of Yellow -->
+    <color name="Yellow">#FFFF00</color>
+    <color name="GoldenYellow">#FFDF00</color>
+    <color name="Sunflower">#FFC300</color>
+    <color name="Amber">#FFBF00</color>
+    <color name="Lemon">#FFF700</color>
+
+    <!-- Shades of Green -->
+    <color name="Green">#008000</color>
+    <color name="MintGreen">#98FF98</color>
+    <color name="Lime">#00FF00</color>
+    <color name="Olive">#808000</color>
+    <color name="Emerald">#50C878</color>
+
+    <!-- Shades of Cyan -->
+    <color name="Cyan">#00FFFF</color>
+    <color name="Turquoise">#40E0D0</color>
+    <color name="Teal">#008080</color>
+
+    <!-- Shades of Blue -->
+    <color name="LightBlue">#ADD8E6</color>
+    <color name="DarkBlue">#00008B</color>
+    <color name="SkyBlue">#87CEEB</color>
+    <color name="DodgerBlue">#1E90FF</color>
+    <color name="SteelBlue">#4682B4</color>
+
+    <!-- Shades of Purple -->
+    <color name="Purple">#800080</color>
+    <color name="Lavender">#E6E6FA</color>
+    <color name="Violet">#EE82EE</color>
+    <color name="Indigo">#4B0082</color>
+    <color name="Magenta">#FF00FF</color>
+    <color name="Fuchsia">#FF00FF</color>
+
+    <!-- Shades of Pink -->
+    <color name="LightPink">#FFB6C1</color>
+    <color name="DeepPink">#FF1493</color>
+    <color name="HotPink">#FF69B4</color>
+    <color name="PaleVioletRed">#DB7093</color>
+    <color name="MediumVioletRed">#C71585</color>
+
+    <!-- Shades of Brown -->
+    <color name="LightBrown">#A52A2A</color>
+    <color name="DarkBrown">#654321</color>
+    <color name="Chocolate">#D2691E</color>
+    <color name="SaddleBrown">#8B4513</color>
+    <color name="SandyBrown">#F4A460</color>
+
+    <!-- Shades of Dirt -->
+    <color name="Dirt">#9B7653</color>
+    <color name="DarkDirt">#7B5E36</color>
+    <color name="Soil">#6F4E37</color>
+    <color name="Mud">#70543E</color>
+    <color name="Clay">#B66A50</color>
+
+    <!-- Grayscale -->
+    <color name="White">#FFFFFFFF</color>
+    <color name="Gray10">#E6E6E6</color>
+    <color name="Gray20">#CCCCCC</color>
+    <color name="Gray30">#B3B3B3</color>
+    <color name="Gray40">#999999</color>
+    <color name="Gray50">#808080</color>
+    <color name="Gray60">#666666</color>
+    <color name="Gray70">#4D4D4D</color>
+    <color name="Gray80">#333333</color>
+    <color name="Gray90">#1A1A1A</color>
+    <color name="Black">#000000</color>
+</resources>

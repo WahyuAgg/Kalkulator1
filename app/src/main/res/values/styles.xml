@@ -1,0 +1,52 @@
+<resources>
+    <!--    Line button-->
+    <style name="LineButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+
+    <!-- Custom style for buttons -->
+    <style name="WhiteButton">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:background">@drawable/white_button</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="backgroundTint">@null</item>
+    <item name="android:stateListAnimator">@drawable/button_state_list_anim_material</item>
+        <item name="android:textSize">25sp</item>
+        <item name="fontFamily">@font/inter</item>
+    </style>
+
+    <style name="BlueButton" parent="WhiteButton">
+        <item name="android:background">@drawable/blue_button</item>
+    </style>
+
+    <style name="BacksapceButton">
+        <item name="fontFamily">@font/inter</item>
+        <item name="backgroundTint">@null</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@color/White</item>
+        <item name="android:elevation">0dp</item>
+        <item name="android:layout_margin">0dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">end</item>
+        <item name="android:textAlignment">textEnd</item>
+
+        <!-- Text shadow -->
+        <item name="android:shadowColor">@color/Gray40</item>
+        <item name="android:shadowDx">-2</item>
+        <item name="android:shadowDy">5</item>
+        <item name="android:shadowRadius">3</item>
+    </style>
+
+
+
+
+
+</resources>

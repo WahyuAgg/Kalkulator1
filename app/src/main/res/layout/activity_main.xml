@@ -1,0 +1,157 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/White"
+    tools:context=".MainActivity"
+    >
+
+
+
+    <!-- TextView for displaying input -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:padding="16dp"
+        >
+
+        <!-- TextView for displaying input -->
+        <TextView
+            android:id="@+id/display_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="45sp"
+            android:textColor="@color/CustomBlack"
+            android:background="@color/White"
+            android:layout_weight="5"
+            android:gravity="end|center_vertical"
+            android:paddingEnd="16dp"
+            />
+
+
+        <!-- TextView for displaying result -->
+        <TextView
+            android:id="@+id/display_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="30sp"
+            android:textColor="@color/BlueFont"
+            android:gravity="end|center_vertical"
+            android:background="@color/White"
+            android:layout_weight="3"
+            android:paddingEnd="16dp"
+            />
+
+        <!-- Button for backspace -->
+        <Button
+            android:id="@+id/buttonBackspace"
+            android:text="←"
+            style="@style/BacksapceButton"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+
+    <!-- GridLayout for calculator buttons -->
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="4"
+        android:rowCount="4"
+        android:layout_marginBottom="15dp"
+        android:layout_gravity="center">
+
+        <!-- Row 1 -->
+        <Button
+            android:id="@+id/button7"
+            android:text="7"
+            style="@style/WhiteButton" />
+
+        <Button
+            android:id="@+id/button8"
+            android:text="8"
+            style="@style/WhiteButton" />
+
+        <Button
+            android:id="@+id/button9"
+            android:text="9"
+            style="@style/WhiteButton" />
+
+        <Button
+            android:id="@+id/buttonDivide"
+            android:text="/"
+            style="@style/WhiteButton" />
+
+        <!-- Row 2 -->
+        <Button
+            android:id="@+id/button4"
+            android:text="4"
+            style="@style/WhiteButton" />
+
+        <Button
+            android:id="@+id/button5"
+            android:text="5"
+            style="@style/WhiteButton" />
+
+        <Button
+            android:id="@+id/button6"
+            android:text="6"
+            style="@style/WhiteButton" />
+
+        <Button
+            android:id="@+id/buttonMultiply"
+            android:text="*"
+            style="@style/WhiteButton" />
+
+        <!-- Row 3 -->
+        <Button
+            android:id="@+id/button1"
+            android:text="1"
+            style="@style/WhiteButton" />
+
+        <Button
+            android:id="@+id/button2"
+            android:text="2"
+            style="@style/WhiteButton" />
+
+        <Button
+            android:id="@+id/button3"
+            android:text="3"
+            style="@style/WhiteButton" />
+
+        <Button
+            android:id="@+id/buttonAdd"
+            android:text="+"
+            style="@style/WhiteButton" />
+
+        <!-- Row 4 -->
+        <Button
+            android:id="@+id/buttonClear"
+            android:text="C"
+            android:textColor="@color/Red"
+            style="@style/WhiteButton" />
+
+        <Button
+            android:id="@+id/button0"
+            android:text="0"
+            style="@style/WhiteButton" />
+
+        <Button
+            android:id="@+id/buttonEqual"
+            android:text="="
+            style="@style/BlueButton" />
+
+        <Button
+            android:id="@+id/buttonSubtract"
+            android:text="-"
+            style="@style/WhiteButton" />
+
+    </GridLayout>
+
+</LinearLayout>
