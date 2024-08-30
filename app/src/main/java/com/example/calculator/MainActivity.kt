@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var displayInput: TextView
     private lateinit var displayResult: TextView
-    private val input = StringBuilder() // to keep track of the current input
+    private val input = StringBuilder()
     private val evaluator = ExpressionEvaluator()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         assignButtons()
     }
 
+    //assign tombol dengan fungsinya
     private fun assignButtons() {
         // Tombol angka
         findViewById<Button>(R.id.button0).setOnClickListener { appendInput("0") }
