@@ -22,11 +22,11 @@ class MainActivity : AppCompatActivity() {
         displayResult = findViewById(R.id.display_result)
 
         // Initialize buttons and set onClickListeners
-        initializeButtons()
+        assignButtons()
     }
 
-    private fun initializeButtons() {
-        // Number buttons
+    private fun assignButtons() {
+        // Tombol angka
         findViewById<Button>(R.id.button0).setOnClickListener { appendInput("0") }
         findViewById<Button>(R.id.button1).setOnClickListener { appendInput("1") }
         findViewById<Button>(R.id.button2).setOnClickListener { appendInput("2") }
@@ -38,16 +38,16 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button8).setOnClickListener { appendInput("8") }
         findViewById<Button>(R.id.button9).setOnClickListener { appendInput("9") }
 
-        // Operator buttons
+        // Tombol Operator
         findViewById<Button>(R.id.buttonAdd).setOnClickListener { appendInput("+") }
         findViewById<Button>(R.id.buttonSubtract).setOnClickListener { appendInput("-") }
         findViewById<Button>(R.id.buttonMultiply).setOnClickListener { appendInput("*") }
         findViewById<Button>(R.id.buttonDivide).setOnClickListener { appendInput("/") }
 
-        // Other buttons
+        // Tombol lain
         findViewById<Button>(R.id.buttonClear).setOnClickListener { clearInput() }
         findViewById<Button>(R.id.buttonBackspace).setOnClickListener { removeLastCharacter() }
-        findViewById<Button>(R.id.buttonEqual).setOnClickListener { calculateResult() }
+        findViewById<Button>(R.id.buttonEqual).setOnClickListener { calculate() }
     }
 
     // Fungsi untuk menambahkan karakter input
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     // Fungsi tombol = (sama dengan)
-    private fun calculateResult() {
+    private fun calculate() {
         try {
             val expression = input.toString()
 
