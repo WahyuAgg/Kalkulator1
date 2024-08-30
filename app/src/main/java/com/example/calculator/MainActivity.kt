@@ -17,11 +17,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Initialize the TextViews
+        // Inisialisasi TextViews
         displayInput = findViewById(R.id.display_input)
         displayResult = findViewById(R.id.display_result)
 
-        // Initialize buttons and set onClickListeners
+        // Inisialisasi buttons dan setOnClickListeners
         assignButtons()
     }
 
