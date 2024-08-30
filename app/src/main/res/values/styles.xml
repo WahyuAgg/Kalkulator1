@@ -1,6 +1,6 @@
 <resources>
     <!--    Line button-->
-    <style name="LineButton">
+    <style name="RowButtons">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">horizontal</item>
@@ -8,7 +8,7 @@
     </style>
 
 
-    <!-- Custom style for buttons -->
+    <!-- Customr buttons -->
     <style name="WhiteButton">
         <item name="android:layout_width">80dp</item>
         <item name="android:layout_height">80dp</item>
@@ -16,16 +16,18 @@
         <item name="android:textColor">@android:color/black</item>
         <item name="android:layout_margin">8dp</item>
         <item name="backgroundTint">@null</item>
-    <item name="android:stateListAnimator">@drawable/button_state_list_anim_material</item>
+        <item name="android:stateListAnimator">@drawable/button_state_list_anim_material</item>
         <item name="android:textSize">25sp</item>
         <item name="fontFamily">@font/inter</item>
+        <item name="android:elevation">5dp</item>
+        
     </style>
 
     <style name="BlueButton" parent="WhiteButton">
         <item name="android:background">@drawable/blue_button</item>
     </style>
 
-    <style name="BacksapceButton">
+    <style name="BackspaceButton">
         <item name="fontFamily">@font/inter</item>
         <item name="backgroundTint">@null</item>
         <item name="android:textSize">30sp</item>
@@ -37,12 +39,17 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_gravity">end</item>
         <item name="android:textAlignment">textEnd</item>
-
-        <!-- Text shadow -->
+        <!--  shadow -->
         <item name="android:shadowColor">@color/Gray40</item>
         <item name="android:shadowDx">-2</item>
         <item name="android:shadowDy">5</item>
         <item name="android:shadowRadius">3</item>
+    </style>
+
+    <style name="HorizontalButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
     </style>
 
 

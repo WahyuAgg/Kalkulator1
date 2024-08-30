@@ -3,10 +3,8 @@ package com.example.calculator
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
 
@@ -52,20 +50,24 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.buttonEqual).setOnClickListener { calculateResult() }
     }
 
-//    fungsi untuk menambahkan karakter input
+    // Fungsi untuk menambahkan karakter input
     private fun appendInput(value: String) {
+
+        if (input.isEmpty() && value in "+-*/") {
+            input.append("0")
+        }
         input.append(value)
         displayInput.text = input.toString()
     }
 
-//    fungsi tombol C (Clear)
+    // Fungsi tombol C (Clear)
     private fun clearInput() {
         input.clear()
         displayInput.text = "0"
         displayResult.text = "0"
     }
 
-//    fungsi tombol ← (backspace)
+    // Fungsi tombol ← (backspace)
     private fun removeLastCharacter() {
         if (input.isNotEmpty()) {
             input.deleteCharAt(input.length - 1)
@@ -73,14 +75,24 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//    fungsi tombol = (sama dengan)
+    // Fungsi tombol = (sama dengan)
     private fun calculateResult() {
         try {
             val expression = input.toString()
+
+            // fungsi evaluate dari class ExpressionEvaluator
             val result = evaluator.evaluate(expression)
             displayResult.text = result.toString()
-        } catch (e: Exception) {
+
+
+        } catch (e: ArithmeticException) {
+            // TOAST error jika dibagi 0
             displayResult.text = "Error"
+            Toast.makeText(this, "Error: Division by zero", Toast.LENGTH_SHORT).show()
+        } catch (e: Exception) {
+            // TOAST error yang lain
+            displayResult.text = "Error"
+            Toast.makeText(this, "Error: Invalid operation", Toast.LENGTH_SHORT).show()
         }
     }
 }

@@ -1,86 +1,88 @@
 package com.example.calculator
 
+import java.util.Stack
+
+// Class yang berisi method untuk menghitung string
 class ExpressionEvaluator {
 
-    // Fungsi utama untuk mengevaluasi ekspresi matematika dalam bentuk string
-    fun evaluate(expression: String): Double {
-        // Menghapus spasi dari ekspresi untuk memudahkan parsing
-        val cleanedExpression = expression.replace(" ", "")
-        return parseExpression(cleanedExpression)
+
+    // Fungsi untuk memeriksa apakah operator 'op2' memiliki prioritas lebih tinggi atau sama dengan 'op1'
+    // operator perkalian atau pembagian akan dihitung lebih dulu daripada pengurangan dan penjumlahan
+    private fun checkPriority(op1: Char, op2: Char): Boolean {
+        if ((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-')) return false
+        return true
     }
 
-    // Fungsi untuk mem-parsing ekspresi yang mungkin mengandung tanda kurung
-    private fun parseExpression(expression: String): Double {
-        var exp = expression
-        // Memeriksa dan memproses tanda kurung terlebih dahulu
-        while (exp.contains("(")) {
-            // Menemukan indeks tanda kurung tutup pertama
-            val closingIndex = exp.indexOf(")")
-            var openingIndex = closingIndex
-            // Menemukan indeks tanda kurung buka yang sesuai
-            while (openingIndex > 0 && exp[openingIndex] != '(') {
-                openingIndex--
+
+    // Fungsi untuk menerapkan operator pada dua angka dan mengembalikan hasilnya
+    private fun applyOperation(op: Char, b: Double, a: Double): Double {
+        return when (op) {
+            '+' -> a + b
+            '-' -> a - b
+            '*' -> a * b
+            '/' -> {
+                if (b == 0.0) throw ArithmeticException("Division by zero")
+                a / b
             }
-            // Mengambil sub-ekspresi di dalam tanda kurung
-            val subExpression = exp.substring(openingIndex + 1, closingIndex)
-            // Mengevaluasi sub-ekspresi dan menggantikannya dalam ekspresi utama
-            val result = parseSimpleExpression(subExpression)
-            exp = exp.substring(0, openingIndex) + result + exp.substring(closingIndex + 1)
+            else -> 0.0
         }
-        // Mengevaluasi ekspresi tanpa tanda kurung
-        return parseSimpleExpression(exp)
     }
 
-    // Fungsi untuk mem-parsing ekspresi sederhana tanpa tanda kurung
-    private fun parseSimpleExpression(expression: String): Double {
-        var exp = expression
-        // Memproses perkalian dan pembagian terlebih dahulu
-        while (exp.contains("*") || exp.contains("/")) {
-            val operators = listOf("*", "/")
-            for (operator in operators) {
-                val index = exp.indexOf(operator)
-                if (index != -1) {
-                    // Memisahkan operand kiri dan kanan berdasarkan operator
-                    val leftOperand = exp.substring(0, index).trim()
-                    val rightOperand = exp.substring(index + 1).trim()
-                    // Mengonversi operand menjadi nilai numerik
-                    val leftValue = if (leftOperand.isEmpty()) 0.0 else parseSimpleOperand(leftOperand)
-                    val rightValue = parseSimpleOperand(rightOperand)
-                    // Menghitung hasil berdasarkan operator (perkalian atau pembagian)
-                    val result = if (operator == "*") leftValue * rightValue else leftValue / rightValue
-                    // Mengganti bagian ekspresi dengan hasil kalkulasi
-                    exp = "$result${exp.substring(index + rightOperand.length + 1)}"
-                    break
+
+    // Fungsi utama untuk mengevaluasi ekspresi matematika
+    fun evaluate(expression: String): String {
+        // Stack untuk menyimpan angka
+        val numbers = Stack<Double>()
+        // Stack untuk menyimpan operator (+, -, *, /)
+        val operators = Stack<Char>()
+
+        var i = 0
+        while (i < expression.length) {
+            val c = expression[i]
+
+            // Jika karakter saat ini adalah spasi, lewati
+            if (c == ' ') {
+                i++
+                continue
+            }
+
+            // Jika karakter saat ini adalah angka (termasuk desimal)
+            if (c in '0'..'9' || c == '.') {
+                val sb = StringBuilder()
+                // Ambil seluruh angka (termasuk bagian desimal)
+                while (i < expression.length && (expression[i] in '0'..'9' || expression[i] == '.')) {
+                    sb.append(expression[i++])
                 }
+                // Masukkan angka ke dalam stack
+                numbers.push(sb.toString().toDouble())
+                i--
             }
-        }
-        // Memproses penjumlahan dan pengurangan
-        while (exp.contains("+") || exp.contains("-")) {
-            val operators = listOf("+", "-")
-            for (operator in operators) {
-                val index = exp.indexOf(operator)
-                if (index != -1) {
-                    // Memisahkan operand kiri dan kanan berdasarkan operator
-                    val leftOperand = exp.substring(0, index).trim()
-                    val rightOperand = exp.substring(index + 1).trim()
-                    // Mengonversi operand menjadi nilai numerik
-                    val leftValue = if (leftOperand.isEmpty()) 0.0 else parseSimpleOperand(leftOperand)
-                    val rightValue = parseSimpleOperand(rightOperand)
-                    // Menghitung hasil berdasarkan operator (penjumlahan atau pengurangan)
-                    val result = if (operator == "+") leftValue + rightValue else leftValue - rightValue
-                    // Mengganti bagian ekspresi dengan hasil kalkulasi
-                    exp = "$result${exp.substring(index + rightOperand.length + 1)}"
-                    break
+            // Jika karakter saat ini adalah operator
+            else if (c in "+-*/") {
+                // Proses semua operator dengan prioritas lebih tinggi atau sama
+                while (operators.isNotEmpty() && checkPriority(c, operators.peek())) {
+                    numbers.push(applyOperation(operators.pop(), numbers.pop(), numbers.pop()))
                 }
+                // Masukkan operator saat ini ke dalam stack
+                operators.push(c)
             }
+            i++
         }
-        // Mengembalikan hasil akhir sebagai nilai double
-        return exp.toDouble()
+
+        // Proses semua operator yang tersisa didalam stack
+        while (operators.isNotEmpty()) {
+            numbers.push(applyOperation(operators.pop(), numbers.pop(), numbers.pop()))
+        }
+
+        // Nilai akhir dari ekspresi
+        val result = numbers.pop()
+
+        // Periksa apakah hasilnya bilangan bulat atau bukan
+        return if (result == result.toInt().toDouble()) {
+            result.toInt().toString()  // Kembalikan sebagai bilangan bulat
+        } else {
+            result.toString()  // Tetap sebagai float
+        }
     }
 
-    // Fungsi untuk mengonversi operand menjadi nilai numerik
-    private fun parseSimpleOperand(operand: String): Double {
-        // Jika konversi gagal, kembalikan 0.0 sebagai default
-        return operand.toDoubleOrNull() ?: 0.0
-    }
 }

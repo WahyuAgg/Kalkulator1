@@ -10,7 +10,7 @@
 
 
 
-    <!-- TextView for displaying input -->
+    <!-- TextView Input dan Result -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:padding="16dp"
         >
 
-        <!-- TextView for displaying input -->
+        <!-- TextView input -->
         <TextView
             android:id="@+id/display_input"
             android:layout_width="match_parent"
@@ -34,7 +34,7 @@
             />
 
 
-        <!-- TextView for displaying result -->
+        <!-- TextView result -->
         <TextView
             android:id="@+id/display_result"
             android:layout_width="match_parent"
@@ -48,110 +48,124 @@
             android:paddingEnd="16dp"
             />
 
-        <!-- Button for backspace -->
+        <!-- Button Backspace -->
         <Button
             android:id="@+id/buttonBackspace"
             android:text="←"
-            style="@style/BacksapceButton"
+            style="@style/BackspaceButton"
             android:layout_weight="1"
             />
     </LinearLayout>
 
-    <!-- GridLayout for calculator buttons -->
-    <GridLayout
-        android:id="@+id/gridLayout"
+    <!-- Container Button-->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:columnCount="4"
-        android:rowCount="4"
-        android:layout_marginBottom="15dp"
-        android:layout_gravity="center">
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp">
 
-        <!-- Row 1 -->
-        <Button
-            android:id="@+id/button7"
-            android:text="7"
-            style="@style/WhiteButton" />
+        <!-- Baris tombol 1 -->
+        <LinearLayout
+            style="@style/HorizontalButtonStyle">
 
-        <Button
-            android:id="@+id/button8"
-            android:text="8"
-            style="@style/WhiteButton" />
+            <Button
+                android:id="@+id/button7"
+                android:text="7"
+                style="@style/WhiteButton" />
 
-        <Button
-            android:id="@+id/button9"
-            android:text="9"
-            style="@style/WhiteButton" />
+            <Button
+                android:id="@+id/button8"
+                android:text="8"
+                style="@style/WhiteButton" />
 
-        <Button
-            android:id="@+id/buttonDivide"
-            android:text="/"
-            style="@style/WhiteButton" />
+            <Button
+                android:id="@+id/button9"
+                android:text="9"
+                style="@style/WhiteButton" />
 
-        <!-- Row 2 -->
-        <Button
-            android:id="@+id/button4"
-            android:text="4"
-            style="@style/WhiteButton" />
+            <Button
+                android:id="@+id/buttonDivide"
+                android:text="/"
+                style="@style/WhiteButton" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/button5"
-            android:text="5"
-            style="@style/WhiteButton" />
+        <!-- Baris tombol 2 -->
+        <LinearLayout
+            style="@style/HorizontalButtonStyle">
 
-        <Button
-            android:id="@+id/button6"
-            android:text="6"
-            style="@style/WhiteButton" />
+            <Button
+                android:id="@+id/button4"
+                android:text="4"
+                style="@style/WhiteButton" />
 
-        <Button
-            android:id="@+id/buttonMultiply"
-            android:text="*"
-            style="@style/WhiteButton" />
+            <Button
+                android:id="@+id/button5"
+                android:text="5"
+                style="@style/WhiteButton" />
 
-        <!-- Row 3 -->
-        <Button
-            android:id="@+id/button1"
-            android:text="1"
-            style="@style/WhiteButton" />
+            <Button
+                android:id="@+id/button6"
+                android:text="6"
+                style="@style/WhiteButton" />
 
-        <Button
-            android:id="@+id/button2"
-            android:text="2"
-            style="@style/WhiteButton" />
+            <Button
+                android:id="@+id/buttonMultiply"
+                android:text="*"
+                style="@style/WhiteButton" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/button3"
-            android:text="3"
-            style="@style/WhiteButton" />
+        <!-- Baris tombol 3 -->
+        <LinearLayout
+            style="@style/HorizontalButtonStyle">
 
-        <Button
-            android:id="@+id/buttonAdd"
-            android:text="+"
-            style="@style/WhiteButton" />
+            <Button
+                android:id="@+id/button1"
+                android:text="1"
+                style="@style/WhiteButton" />
 
-        <!-- Row 4 -->
-        <Button
-            android:id="@+id/buttonClear"
-            android:text="C"
-            android:textColor="@color/Red"
-            style="@style/WhiteButton" />
+            <Button
+                android:id="@+id/button2"
+                android:text="2"
+                style="@style/WhiteButton" />
 
-        <Button
-            android:id="@+id/button0"
-            android:text="0"
-            style="@style/WhiteButton" />
+            <Button
+                android:id="@+id/button3"
+                android:text="3"
+                style="@style/WhiteButton" />
 
-        <Button
-            android:id="@+id/buttonEqual"
-            android:text="="
-            style="@style/BlueButton" />
+            <Button
+                android:id="@+id/buttonAdd"
+                android:text="+"
+                style="@style/WhiteButton" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/buttonSubtract"
-            android:text="-"
-            style="@style/WhiteButton" />
+        <!-- Baris tombol 4 -->
+        <LinearLayout
+            style="@style/HorizontalButtonStyle">
 
-    </GridLayout>
+            <Button
+                android:id="@+id/buttonClear"
+                android:text="C"
+                android:textColor="@color/Red"
+                style="@style/WhiteButton" />
+
+            <Button
+                android:id="@+id/button0"
+                android:text="0"
+                style="@style/WhiteButton" />
+
+            <Button
+                android:id="@+id/buttonEqual"
+                android:text="="
+                style="@style/BlueButton" />
+
+            <Button
+                android:id="@+id/buttonSubtract"
+                android:text="-"
+                style="@style/WhiteButton" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

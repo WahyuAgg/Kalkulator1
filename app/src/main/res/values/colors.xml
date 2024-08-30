@@ -6,7 +6,6 @@
     <color name="BlueButtonGradient2">#04A4C7</color>
     <color name="Red">#D80000</color>
     <color name="BlueFont">#00B1D8</color>
-    <color name="Pink">#FFC0CB</color>
     <color name="WhiteButtonGradient1">#FFFFFFFF</color>
     <color name="WhiteButtonGradient2">#E5E5E5</color>
 
@@ -59,6 +58,7 @@
     <color name="Fuchsia">#FF00FF</color>
 
     <!-- Shades of Pink -->
+    <color name="Pink">#FFC0CB</color>
     <color name="LightPink">#FFB6C1</color>
     <color name="DeepPink">#FF1493</color>
     <color name="HotPink">#FF69B4</color>
